@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# edk build
+Build/
+cscope*
+tags
+BaseTools/
