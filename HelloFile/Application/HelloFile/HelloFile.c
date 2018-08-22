@@ -97,8 +97,6 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *Syste
             Print(L"sfs addr is 0x%016lx\n", &Sfs);
             Print(L"sfs->Revision is 0x%016lx\n", Sfs->Revision);
 
-            Sfs = (EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *) Sfs->Revision;
-
             if (Status == EFI_SUCCESS)
             {
                 //uefi说明文档中有说明：要先OpenVolume打开卷，然后读取文件
