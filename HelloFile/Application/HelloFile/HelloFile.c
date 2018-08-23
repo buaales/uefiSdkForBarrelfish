@@ -86,6 +86,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *Syste
             //     (VOID**)&Sfs);
 
             Print(L"OpenProtocol: EFI_SIMPLE_FILE_SYSTEM_PROTOCOL\n");
+            Print(L"&sfs addr is 0x%08x\n", &Sfs);
             Status = SystemTable->BootServices->OpenProtocol(
                 Files[HandleIndex],
                 &gEfiSimpleFileSystemProtocolGuid,
@@ -94,8 +95,8 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *Syste
                 NULL,
                 EFI_OPEN_PROTOCOL_BY_HANDLE_PROTOCOL);
             Print(L"OpenProtocol: %s\n", Status == EFI_SUCCESS ? L"Successed" : L"Failed");
-            Print(L"sfs addr is 0x%016lx\n", &Sfs);
-            Print(L"sfs->Revision is 0x%016lx\n", Sfs->Revision);
+            Print(L"sfs addr is 0x%08x\n", Sfs);
+            Print(L"sfs->Revision is 0x%08x\n", Sfs->Revision);
 
             if (Status == EFI_SUCCESS)
             {
@@ -142,20 +143,13 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *Syste
                 }
             }
 
+            /* //XXX: u-boot don't supported!
             Status = SystemTable->BootServices->CloseProtocol(
                 Files[HandleIndex],
                 &gEfiSimpleFileSystemProtocolGuid,
                 ImageHandle,
                 NULL);
-
-            if (Status == EFI_SUCCESS)
-            {
-                Print(L"==Successed to close the protocol==\n");
-            }
-            else
-            {
-                Print(L"!!Failed to close the protocol!!\n");
-            }
+            */
 
             Print(L"== %d traverse over==\n", HandleCount - HandleIndex);
         }

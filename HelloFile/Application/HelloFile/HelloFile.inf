@@ -4,7 +4,7 @@
 
 [Defines]
     INF_VERSION                    = 0x00010005
-    BASE_NAME                      = HellFile
+    BASE_NAME                      = HelloFile
     FILE_GUID                      = bbfbca3c-6e36-4a35-b7de-a27e9c7312e8
     MODULE_TYPE                    = UEFI_APPLICATION
     VERSION_STRING                 = 0.1
